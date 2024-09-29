@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Post extends Model
 {
@@ -19,7 +20,7 @@ class Post extends Model
     public function getIsFavouriteAttribute()
 {
     $favourites = $this->whereHas('favourites', function ($query) {
-        $query->where('client_id', request()->user()->id);
+        $query->where('client_id', Auth::guard('client-web')->id());
         $query->where('post_id', $this->id);
     })->first();
     if ($favourites) {
