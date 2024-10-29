@@ -122,3 +122,32 @@ function notifyByFirebase($title,$body,$tokens,$data = [])        // paramete 5 
     curl_close($ch);
     return $result;
 }
+
+
+abstract class Data{
+    protected $data;
+    public function __construct($data)
+    {
+        $this->name = $data;
+    }
+    abstract public function name();
+    abstract public function age();
+}
+interface empolyee{
+    public function jobName();
+}
+
+class Deisty extends Data{
+    public function name()
+    {
+        return 'Abdelrahman Eldeisty';
+    }
+    public function age()
+    {
+        return 20;
+    }
+    public function empolyee()
+    {
+        return 'Software Engineer';
+    }
+}
