@@ -19,7 +19,7 @@ class MainController extends Controller
 {
     public function home(Request $request)
     {
-        // $clients = Client::first();
+        $clients = Client::first();
         // auth('client-web')->login($clients);
         // Auth::guard('client-web')->logout();
         // dd(auth('client-web' )->user());
